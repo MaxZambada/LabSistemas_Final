@@ -189,8 +189,8 @@ PORT(CLK: IN STD_LOGIC;
 	  DATA_LCD : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);   --
 -----------------------------------------------------
 -----------------------------------------------------
-	  Int1, Int2 : IN integer;
-	  GE : IN STD_LOGIC
+	  Int1, Int2 : IN integer
+	  --GE : IN STD_LOGIC
 -----------------------------------------------------------
 --------------ABAJO ESCRIBE TUS PUERTOS--------------------	
 	 	
@@ -204,7 +204,7 @@ end LIB_LCD_INTESC_REVD;
 architecture Behavioral of LIB_LCD_INTESC_REVD is
 
 
-CONSTANT NUM_INSTRUCCIONES : INTEGER := 14; 	--INDICAR EL NÚMERO DE INSTRUCCIONES PARA LA LCD
+CONSTANT NUM_INSTRUCCIONES : INTEGER := 17; 	--INDICAR EL NÚMERO DE INSTRUCCIONES PARA LA LCD
 
 
 --------------------------------------------------------------------------------
@@ -306,9 +306,12 @@ INST(8) <= CHAR_ASCII(X"6A"); 		-- Imprime j
 INST(9) <= CHAR_ASCII(X"65");	    -- Imprime e
 INST(10) <= CHAR_ASCII(X"3A");		-- Imprime : 
 INST(11) <= CHAR_ASCII(X"20");		-- Imprime " "
-INST(12) <= INT_NUM(Int3);          -- Imprime primer valor de puntos
-INST(13) <= INT_NUM(Int4);          -- Imprime segundo valor de puntos
-INST(14) <= CODIGO_FIN(1);          -- FINALIZAMOS EL CODIGO
+INST(12) <= BUCLE_INI(1);		    -- Inicia bucle
+INST(13) <= POS(1,10);              -- Regresa a posicion 1,10
+INST(14) <= INT_NUM(Int3);          -- Imprime primer valor de puntos
+INST(15) <= INT_NUM(Int4);          -- Imprime segundo valor de puntos
+INST(16) <= BUCLE_FIN(1);		    -- Termina bucle
+INST(17) <= CODIGO_FIN(1);          -- FINALIZAMOS EL CODIGO
 
 -------------------------------------------------------------------
 -------------------------------------------------------------------
